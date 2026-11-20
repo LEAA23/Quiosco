@@ -1,0 +1,24 @@
+import { Product } from "@/src/generated/prisma/client"
+import { formatCurrency } from "@/src/utils"
+
+
+type ProductCardProps = {
+    product: Product
+}
+
+const ProductCard = ( {product} : ProductCardProps ) => {
+  return (
+    <div className="border bg-white ">
+
+        <div className="p-5">
+            <h3 className="font-bold text-2xl">{product.name}</h3>
+            <p className="mt-5 font-black text-4xl text-amber-500">
+                {formatCurrency( product.price )}
+            </p>
+        </div>
+
+    </div>
+  )
+}
+
+export default ProductCard
