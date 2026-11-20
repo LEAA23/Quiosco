@@ -1,5 +1,6 @@
 "use client"
 import { useStore } from "@/src/store/store"
+import ProductDetails from "./ProductDetails";
 
 
 const OrderSummary = () => {
@@ -12,7 +13,12 @@ const OrderSummary = () => {
           <p className="text-center my-10">El carrito esta vac&iacute;o</p>
         ) : (
           <div className="mt-5">
-            <p>dsd</p>
+            {order.map(item => (
+              <ProductDetails
+                key={item.id}
+                item={item}
+              />
+            ))}
           </div>
         )}
     </aside>
